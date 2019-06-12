@@ -42,6 +42,18 @@ Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}`
 };
 
+function Villain(attributes) {
+  Humanoid.call(this, attributes)
+}
+
+Villain.prototype.takeDamage = function() {
+  return `${this.name} took damage`;
+}
+
+function Hero(attributes) {
+  Humanoid.call(this, attributes)
+}
+
 /**/
   const mage = new Humanoid({
     createdAt: new Date(),
@@ -91,6 +103,40 @@ Humanoid.prototype.greet = function() {
       'Dagger',
     ],
     language: 'Elvish',
+  });
+
+  const hero = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 4,
+      height: 7,
+    },
+    healthPoints: 50,
+    name: 'Superman',
+    team: 'Good',
+    weapons: [
+      'Fists',
+      'Lazer Eyes',
+    ],
+    language: 'English',
+  });
+
+  const villain = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 3,
+      height: 5,
+    },
+    healthPoints: 50,
+    name: 'Lex',
+    team: 'Bad',
+    weapons: [
+      'Brains',
+      'Tech',
+    ],
+    language: 'English',
   });
 
   console.log(mage.createdAt); // Today's date
